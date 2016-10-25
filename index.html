@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<body ng-app>
+<h1>data Binding</h1>
+<h3 data-ng-init="name ='RIZKI ADRIAN'">
+HELLO {{name}}</br>
+<span ng-bind="name"></span>
+</h3>
+<h1>Initialize Value</h1>
+<h3 data-ng-init="first ='RIZKI'; last ='ADRIAN';">
+HELLO {{first}} {{last}}</br>
+</h3>
+<h1>Example Numeric</h1>
+<h3 data-ng-init="quantity =7; price = 100;">
+{{quantity * price }}</br>
+</h3>
+<h1>Example Array</h1>
+<h3 data-ng-init="brands=['vespa','harley davidson','Mclaren']">
+<p>Brand one : {{brands [0] }}<p>
+<p>Brand two : {{brands [1] }}<p>
+<p>Brand Three : {{brands [2] }}<p>
+</h3>
+<h1>COnditional Example</h1>
+<h3 data-ng-init="brands=['vespa','harley davidson','Mclaren']">
+<p>Brand one : {{brands [0] }}</br>
+<span ng-if="brands[1]=='harley davidson'">Brand Two {{brands[1]}}</br></span>
+Brand three : {{brands [2]}}
+<p>
+</h3>
+<h1>Example switch</h1>
+<h3 data-ng-init="quantity =7; price = 100;">
+{{total= quantity * price }}</br>
+Description : <span ng-switch on="total">
+<b ng-switch-when="600">Cheap</b>
+<b ng-switch-when="700">Fair Enough</b>
+<b ng-switch-when="800">Expensive</b>
+<b ng-switch-default>Too Much</b>
+</span>
+</h3>
+<h1>looping</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 track by $index">
+no:{{$index}}.Brand:{{brand.name}}.Price:{{brand.price}}
+</span>
+</h3>
+<h1>filter</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 | filter:'vespa' track by $index">
+no:{{$index}}.Brand:{{brand.name}}.Price:{{brand.price}}
+</span>
+</h3>
+<h1>spesific filter</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 | filter:{name:'n'} track by $index">
+no:{{$index}}.Brand:{{brand.name}}.Price:{{brand.price}}
+</span>
+</h3>
+<h1>Currency</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 track by $index">
+no:{{$index}}.Brand:{{brand.name}}.Price:{{brand.price|currency:"rp."}}
+</span>
+</h3>
+<h1>Number Format</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 track by $index">
+no:{{$index}}.Brand:{{brand.name}}.Price:{{brand.price|number}}
+</span>
+</h3>
+<h1>String to date</h1>
+<h3>{{	'05041995' | date:'dd-mm-yyyy'}}</h3>
+<h1>JSON</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span>{{brands2|json:2}}
+</span>
+</h3>
+<h1>lowercase</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 track by $index">
+no:{{$index}}.Brand:{{brand.name|lowercase}}.Price:{{brand.price}}
+</span>
+</h3>
+<h1>UPPERCASE</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 track by $index">
+no:{{$index}}.Brand:{{brand.name|uppercase}}.Price:{{brand.price}}
+</span>
+</h3>
+<h1>LIMIT TO</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span>{{brands2|limitTo:1:1}}
+</span>
+</h3>
+<h1>OrderByname</h1>
+<h3 data-ng-init="brands2=[{name:'vespa',price:20000000},{name:'harley davidson',price:90000000},{name:'Mclaren',price:900000000}]">
+<span ng-repeat = "brand in brands2 |orderBy:'name' track by $index">
+no:{{$index}}.Brand:{{brand.name}}.Price:{{brand.price}}
+</span>
+</h3>
+<h1>Click Action</h1>
+<p ng-click="name='angularjs'"data-ng-init="name='Click Me'">
+<span ng-bind="name"></span>
+</p>
+<script src="js/shared/angular.min.js"></script>
+</body>
+</html>
